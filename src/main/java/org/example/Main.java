@@ -93,7 +93,7 @@ public class Main {
                 synchronized (lock) {
                     if (!paymentComplete) {
                         timeout = true;
-                        System.out.println("\n결제 시간이 초과되어 주문이 취소되었습니다.");
+                        System.out.println("\n결제 시간 초과로 주문이 취소되었습니다.");
                         System.exit(0);
                     }
                 }
@@ -126,14 +126,13 @@ public class Main {
                     if (inputMoney < finalClothesChoice.price) {
                         System.out.println("[오류] 금액이 부족합니다. 다시 입력해주세요.\n");
                     } else {
-                        // 타임아웃이 되기 전에 무사히 결제가 들어온 경우 성공 확정
                         paymentComplete = true;
                         System.out.println(" - 거스름돈 : " + (inputMoney - finalClothesChoice.price));
                         System.out.println("===== 결제가 완료되었습니다. 이용해주셔서 감사합니다. =====");
                         break;
                     }
                 } catch (NumberFormatException e) {
-                    System.out.println("[오류] 올바른 액수(숫자)를 입력해주세요.\n");
+                    System.out.println("[오류] 금액을 정확하게 입력해주세요.\n");
                 }
             }
         }
